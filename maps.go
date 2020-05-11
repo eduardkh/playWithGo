@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 var timeZone = map[string]int{
 	"UTC": 0 * 60 * 60,
 	"EST": -5 * 60 * 60,
@@ -10,5 +12,5 @@ var timeZone = map[string]int{
 
 func main() {
 
-	println(timeZone["UTC"])
+	fmt.Formatterprintln(timeZone["UTC"])
 }
