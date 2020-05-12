@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 
@@ -15,13 +17,23 @@ var cmd = &cobra.Command{
 			log.Fatalln("must set URL!")
 		}
 		client := http.Client{}
-		req, err := http.NewRequest("GET". args[], nil)
+		req, err := http.NewRequest("GET", args[0], nil)
 		if err != nil {
 			log.Fatalln("unable to get request")
 		}
 		if username != "" && password != "" {
 			req.SetBasicAuth(username, password)
 		}
+		resp, err := client.Do(req)
+		if err != nil {
+			log.Fatalln("unable to get response")
+		}
+		defer resp.Body.Close()
+		content, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			log.Fatalln("unable to read body")
+		}
+		fmt.Println(string(content))
 	},
 }
 
