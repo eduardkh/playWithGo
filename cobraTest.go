@@ -10,8 +10,8 @@ import (
 )
 
 var cmd = &cobra.Command{
-	Use:   "cobrause",
-	Short: "cobra short desc",
+	Use:   "cobraTest.exe <URL>",
+	Short: "example use: cobraTest.exe https://httpbin.org/basic-auth/foo/bar -u foo -p bar",
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) != 1 {
 			log.Fatalln("must set URL!")
