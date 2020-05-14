@@ -14,5 +14,6 @@ func main() {
 	fmt.Println(reflect.TypeOf(tst))
 	fmt.Println(reflect.TypeOf(tst2))
 	fmt.Println(reflect.TypeOf(tst3))
-
+	// or
+	fmt.Printf("the type is: %T", tst)
 }
